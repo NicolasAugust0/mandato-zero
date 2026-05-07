@@ -708,3 +708,124 @@ body {
   .modal-box { padding: 1.25rem; }
   .game-title { font-size: 42px; }
 }
+
+
+.decision-btn {
+  min-height: 110px;
+}
+
+.modal-box {
+  max-width: 520px;
+}
+
+body {
+  background:
+    radial-gradient(circle at top, rgba(41,121,255,0.08), transparent 30%),
+    radial-gradient(circle at bottom right, rgba(0,230,118,0.06), transparent 22%),
+    var(--bg-dark);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-width: 120px;
+}
+
+.decisions-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 760px) {
+  .decisions-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.decision-btn.diplomacy {
+  border-color: rgba(0,230,118,0.3);
+}
+.decision-btn.diplomacy:hover {
+  border-color: var(--accent-green);
+  background: rgba(0,230,118,0.08);
+}
+.decision-btn.legis {
+  border-color: rgba(255,109,0,0.35);
+}
+.decision-btn.legis:hover {
+  border-color: var(--accent-orange);
+  background: rgba(255,109,0,0.08);
+}
+
+.decision-btn.disabled,
+.decision-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none !important;
+  box-shadow: none !important;
+}
+
+.active-priorities {
+  min-height: 40px;
+}
+
+.score-breakdown {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  margin-bottom: 2rem;
+  text-align: left;
+}
+
+.score-title {
+  font-family: var(--font-display);
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--accent-green);
+  margin-bottom: 0.75rem;
+}
+
+.score-line,
+.score-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 13px;
+  padding: 0.42rem 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.score-total {
+  border-bottom: none;
+  padding-top: 0.85rem;
+  margin-top: 0.35rem;
+  font-family: var(--font-display);
+  color: var(--accent-yellow);
+}
+
+.score-line strong,
+.score-total strong {
+  font-family: var(--font-display);
+}
+
+@media (max-width: 620px) {
+  .game-header {
+    flex-wrap: wrap;
+  }
+
+  .header-center,
+  .header-right {
+    width: 100%;
+    max-width: none;
+  }
+
+  .header-right {
+    justify-content: flex-start;
+  }
+
+  .caixa-display {
+    text-align: left;
+  }
+}

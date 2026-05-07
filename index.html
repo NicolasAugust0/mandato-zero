@@ -8,54 +8,52 @@
 </head>
 <body>
 
-  <!-- ===== TELA DE INTRO ===== -->
   <div id="screen-intro" class="screen active">
     <div class="intro-bg">
       <div class="intro-content">
         <div class="logo-badge">GOV BR</div>
         <h1 class="game-title">MANDATO<br><span>ZERO</span></h1>
         <p class="game-subtitle">CRISE TOTAL</p>
-        <p class="game-desc">Você foi eleito. Agora enfrente 4 anos de caos, decisões e pressão popular.</p>
+        <p class="game-desc">Você foi eleito. Agora enfrente 4 anos de déficit, tensão global, pressão popular e negociações duras com o Legislativo.</p>
         <button class="btn-primary btn-large" onclick="Game.goToSetup()">INICIAR MANDATO</button>
-        <div class="credits">v1.0 &bull; Jogo de Gestão Pública</div>
+        <div class="credits">v2.0 • Interface integrada e jogável</div>
       </div>
     </div>
   </div>
 
-  <!-- ===== TELA DE SETUP ===== -->
   <div id="screen-setup" class="screen">
     <div class="setup-content">
       <div class="setup-header">
         <span class="step-tag">POSSE</span>
         <h2>Escolha suas 3 Prioridades</h2>
-        <p>Defina o foco do seu governo. Essas áreas receberão bônus durante o mandato.</p>
+        <p>Essas áreas influenciam seus bônus iniciais e alteram a forma como seu governo reage às crises.</p>
       </div>
 
       <div class="priority-grid" id="priority-grid">
         <div class="priority-card" data-priority="saude" onclick="Game.togglePriority(this)">
           <div class="priority-icon">🏥</div>
           <div class="priority-name">Saúde</div>
-          <div class="priority-desc">+10 popularidade inicial, -5% custo serviços</div>
+          <div class="priority-desc">+10 popularidade inicial e investimentos públicos mais eficientes.</div>
         </div>
         <div class="priority-card" data-priority="educacao" onclick="Game.togglePriority(this)">
           <div class="priority-icon">📚</div>
           <div class="priority-name">Educação</div>
-          <div class="priority-desc">+8 estabilidade social, crescimento longo prazo</div>
+          <div class="priority-desc">+8 estabilidade social e melhor resposta em ações preventivas.</div>
         </div>
         <div class="priority-card" data-priority="seguranca" onclick="Game.togglePriority(this)">
           <div class="priority-icon">🛡️</div>
           <div class="priority-name">Segurança</div>
-          <div class="priority-desc">-15% impacto de ataques armados</div>
+          <div class="priority-desc">Melhor capacidade de resposta a crises de violência.</div>
         </div>
         <div class="priority-card" data-priority="infraestrutura" onclick="Game.togglePriority(this)">
           <div class="priority-icon">🏗️</div>
           <div class="priority-name">Infraestrutura</div>
-          <div class="priority-desc">+5% recuperação de caixa por turno</div>
+          <div class="priority-desc">Melhor recuperação de caixa por trimestre.</div>
         </div>
         <div class="priority-card" data-priority="economia" onclick="Game.togglePriority(this)">
           <div class="priority-icon">💰</div>
           <div class="priority-name">Economia</div>
-          <div class="priority-desc">Caixa inicial 20% maior, +apoio legislativo</div>
+          <div class="priority-desc">Déficit inicial menor e base legislativa mais forte.</div>
         </div>
       </div>
 
@@ -68,20 +66,16 @@
     </div>
   </div>
 
-  <!-- ===== TELA PRINCIPAL DO JOGO ===== -->
   <div id="screen-game" class="screen">
-
-    <!-- Header -->
     <div class="game-header">
       <div class="header-left">
         <div class="mandate-info">
           <span class="mandate-label">MANDATO</span>
           <span class="mandate-year" id="mandate-year">ANO 1</span>
         </div>
-        <div class="turn-info">
-          Trimestre <span id="turn-display">1</span>/16
-        </div>
+        <div class="turn-info">Trimestre <span id="turn-display">1</span>/16</div>
       </div>
+
       <div class="header-center">
         <div class="tension-bar-mini">
           <span class="tension-label">⚠ TENSÃO GLOBAL</span>
@@ -90,89 +84,83 @@
           </div>
         </div>
       </div>
+
       <div class="header-right">
         <div class="caixa-display" id="caixa-display">R$ 0</div>
       </div>
     </div>
 
-    <!-- Dashboard de Indicadores -->
     <div class="dashboard">
       <div class="indicator-card pop">
         <div class="ind-label">Popularidade</div>
         <div class="ind-value" id="val-pop">60</div>
-        <div class="ind-bar">
-          <div class="ind-fill pop-fill" id="bar-pop" style="width:60%"></div>
-        </div>
+        <div class="ind-bar"><div class="ind-fill pop-fill" id="bar-pop" style="width:60%"></div></div>
       </div>
       <div class="indicator-card leg">
         <div class="ind-label">Legislativo</div>
         <div class="ind-value" id="val-leg">50</div>
-        <div class="ind-bar">
-          <div class="ind-fill leg-fill" id="bar-leg" style="width:50%"></div>
-        </div>
+        <div class="ind-bar"><div class="ind-fill leg-fill" id="bar-leg" style="width:50%"></div></div>
       </div>
       <div class="indicator-card stab">
         <div class="ind-label">Estabilidade</div>
         <div class="ind-value" id="val-stab">70</div>
-        <div class="ind-bar">
-          <div class="ind-fill stab-fill" id="bar-stab" style="width:70%"></div>
-        </div>
+        <div class="ind-bar"><div class="ind-fill stab-fill" id="bar-stab" style="width:70%"></div></div>
       </div>
       <div class="indicator-card tens">
         <div class="ind-label">Tensão Global</div>
         <div class="ind-value" id="val-tens">10</div>
-        <div class="ind-bar">
-          <div class="ind-fill tens-fill" id="bar-tens" style="width:10%"></div>
-        </div>
+        <div class="ind-bar"><div class="ind-fill tens-fill" id="bar-tens" style="width:10%"></div></div>
       </div>
     </div>
 
-    <!-- Área de Log / Notícias -->
     <div class="news-ticker">
       <span class="ticker-tag">NOTÍCIAS</span>
-      <div class="ticker-text" id="ticker-text">Novo governo toma posse prometendo reformas...</div>
+      <div class="ticker-text" id="ticker-text">Novo governo toma posse prometendo reformas e equilíbrio fiscal.</div>
     </div>
 
-    <!-- Painel de Decisões -->
     <div class="decisions-panel">
       <div class="decisions-title">⚡ AÇÕES DO TRIMESTRE</div>
       <div class="decisions-grid">
-        <button class="decision-btn cut" onclick="Game.makeDecision('cortar')">
+        <button class="decision-btn cut" data-action="cortar" onclick="Game.makeDecision('cortar')">
           <span class="dec-icon">✂️</span>
           <span class="dec-name">Cortar Gastos</span>
           <span class="dec-effect">+Caixa / -Popularidade</span>
         </button>
-        <button class="decision-btn tax" onclick="Game.makeDecision('imposto')">
+        <button class="decision-btn tax" data-action="imposto" onclick="Game.makeDecision('imposto')">
           <span class="dec-icon">📋</span>
           <span class="dec-name">Aumentar Impostos</span>
           <span class="dec-effect">+Caixa / -Pop / -Leg</span>
         </button>
-        <button class="decision-btn invest" onclick="Game.makeDecision('investir')">
+        <button class="decision-btn invest" data-action="investir" onclick="Game.makeDecision('investir')">
           <span class="dec-icon">🏛️</span>
           <span class="dec-name">Investir Serviços</span>
-          <span class="dec-effect">+Pop / +Stab / -Caixa</span>
+          <span class="dec-effect">+Pop / +Estab / -Caixa</span>
         </button>
-        <button class="decision-btn loan" onclick="Game.makeDecision('emprestimo')">
+        <button class="decision-btn loan" data-action="emprestimo" onclick="Game.makeDecision('emprestimo')">
           <span class="dec-icon">🏦</span>
           <span class="dec-name">Pegar Empréstimo</span>
-          <span class="dec-effect">+Caixa / -Leg / risco</span>
+          <span class="dec-effect">+Caixa / -Leg / +Risco</span>
+        </button>
+        <button class="decision-btn diplomacy" data-action="diplomacia" onclick="Game.makeDecision('diplomacia')">
+          <span class="dec-icon">🌐</span>
+          <span class="dec-name">Diplomacia</span>
+          <span class="dec-effect">-Tensão / -Caixa</span>
+        </button>
+        <button class="decision-btn legis" data-action="negociar" onclick="Game.makeDecision('negociar')">
+          <span class="dec-icon">🏛️</span>
+          <span class="dec-name">Negociar</span>
+          <span class="dec-effect">+Leg / risco político</span>
         </button>
       </div>
     </div>
 
-    <!-- Prioridades ativas -->
     <div class="active-priorities" id="active-priorities"></div>
 
-    <!-- Botão de Avançar -->
     <div class="advance-panel">
-      <button class="btn-advance" id="btn-advance" onclick="Game.nextTurn()">
-        AVANÇAR TRIMESTRE →
-      </button>
+      <button class="btn-advance" id="btn-advance" onclick="Game.nextTurn()">ESCOLHA UMA AÇÃO PRIMEIRO</button>
     </div>
-
   </div>
 
-  <!-- ===== MODAL DE EVENTO ===== -->
   <div id="modal-event" class="modal-overlay" style="display:none">
     <div class="modal-box event-modal">
       <div class="modal-severity" id="event-severity-badge">EVENTO</div>
@@ -183,28 +171,25 @@
     </div>
   </div>
 
-  <!-- ===== MODAL LEGISLATIVO BLOQUEADO ===== -->
   <div id="modal-blocked" class="modal-overlay" style="display:none">
     <div class="modal-box">
       <div class="modal-icon">🏛️</div>
       <h3>Bloqueado pelo Legislativo</h3>
       <p>Seu apoio no parlamento é insuficiente para aprovar essa medida.</p>
-      <p class="modal-hint">Apoio atual: <span id="blocked-leg-val">0</span>/100 (mínimo: 50)</p>
+      <p class="modal-hint">Apoio atual: <span id="blocked-leg-val">0</span>/100</p>
       <button class="btn-primary" onclick="Game.closeModal('modal-blocked')">ENTENDIDO</button>
     </div>
   </div>
 
-  <!-- ===== MODAL ORÇAMENTO PARTICIPATIVO ===== -->
   <div id="modal-budget" class="modal-overlay" style="display:none">
     <div class="modal-box budget-modal">
       <div class="modal-severity budget-tag">ORÇAMENTO PARTICIPATIVO</div>
-      <h3>A população quer investimento!</h3>
-      <p>Escolha <strong>uma</strong> das demandas populares para atender neste trimestre:</p>
+      <h3>A população quer investimento</h3>
+      <p>Escolha uma demanda popular para atender neste trimestre.</p>
       <div id="budget-options" class="budget-options"></div>
     </div>
   </div>
 
-  <!-- ===== TELA FINAL ===== -->
   <div id="screen-end" class="screen">
     <div class="end-content">
       <div class="end-badge" id="end-badge">EXCELENTE</div>
@@ -228,13 +213,13 @@
         </div>
       </div>
       <div class="end-verdict" id="end-verdict"></div>
+      <div id="end-score-breakdown" class="score-breakdown"></div>
       <div class="end-actions">
         <button class="btn-primary btn-large" onclick="Game.restart()">JOGAR NOVAMENTE</button>
       </div>
     </div>
   </div>
 
-  <!-- ===== NOTIFICAÇÃO TOAST ===== -->
   <div id="toast" class="toast"></div>
 
   <script src="script.js"></script>
